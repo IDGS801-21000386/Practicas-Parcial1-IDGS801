@@ -1,5 +1,6 @@
 """
 EJERCICIO 1
+IMPRIMIR ESCALERA CON *
 """
 
 class escalera:
