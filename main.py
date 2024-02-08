@@ -37,6 +37,7 @@ def resistencia():
     tolerancia=0
     valorMax=0
     valorMin=0
+    valor=""
 
     resistencia_colores = {
     0: "Negro",
@@ -81,7 +82,7 @@ def resistencia():
         valorTolerancia = float(tolerancia)
         tolerancia = valorTolerancia
         valorMax = valorMax + valorMax * tolerancia
-        valorMin = valorMax - valorMax * tolerancia
+        valorMin = valor - valor * tolerancia
 
         #valorMax = float((valor * pow(10, c3)) * (1 + tolerancia))
         #valorMin = float((valor * pow(10, c3)) * (1 - tolerancia))
