@@ -1,0 +1,55 @@
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: lightgray;
+}
+
+.Negro {
+    background-color: black;
+}
+
+.Marrón {
+    background-color: brown;
+}
+
+.Rojo {
+    background-color: red;
+}
+
+.Naranja {
+    background-color: orange;
+}
+
+.Amarillo {
+    background-color: yellow;
+}
+
+.Verde {
+    background-color: green;
+}
+
+.Azul {
+    background-color: blue;
+}
+
+.Violeta {
+    background-color: violet;
+}
+
+.Gris {
+    background-color: gray;
+}
+
+.Blanco {
+    background-color: white;
+}

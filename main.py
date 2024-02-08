@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 import forms_distancia
+# import forms_resistencia
 from math import *
 
 # Crear una instancia de la clase Flask
@@ -22,6 +23,70 @@ def distancia():
         resultado = sqrt((x2-x1)**2 + (y2-y1)**2)
         
     return render_template("distancia.html", form = distancia, x1=x1, x2=x2, y1=y1, y2=y2, resultado=resultado)
+
+
+@app.route("/resistencia", methods={"GET", "POST"})
+def resistencia():
+    resistencia = forms_distancia.ResistenciaForm(request.form)
+    c1=""
+    c2=""
+    c3=""
+    color_c1=""
+    color_c2=""
+    color_c3=""
+    tolerancia=0
+    valorMax=0
+    valorMin=0
+
+    resistencia_colores = {
+    0: "Negro",
+    1: "Marrón",
+    2: "Rojo",
+    3: "Naranja",
+    4: "Amarillo",
+    5: "Verde",
+    6: "Azul",
+    7: "Violeta",
+    8: "Gris",
+    9: "Blanco"
+    }
+
+    resistencia_multiplicador = {
+    0: 1,
+    1: 10,
+    2: 100,
+    3: 1000,
+    4: 10000,
+    5: 100000,
+    6: 1000000,
+    7: 10000000,
+    8: 100000000,
+    9: 1000000000,
+    }
+
+    if request.method == "POST":
+        c1 = resistencia.c1.data
+        c2 = resistencia.c2.data
+        c3 = resistencia.c3.data
+        color_c1 = resistencia_colores[int(c1)]
+        color_c2 = resistencia_colores[int(c2)]
+        color_c3 = resistencia_colores[int(c3)]
+        tolerancia = resistencia.tolerancia.data
+
+        valorMax = str(c1 + c2)
+        valorMax = int(valorMax)
+        valorMax = valorMax * (resistencia_multiplicador[int(c3)])
+        valor = valorMax
+
+        valorTolerancia = float(tolerancia)
+        tolerancia = valorTolerancia
+        valorMax = valorMax + valorMax * tolerancia
+        valorMin = valorMax - valorMax * tolerancia
+
+        #valorMax = float((valor * pow(10, c3)) * (1 + tolerancia))
+        #valorMin = float((valor * pow(10, c3)) * (1 - tolerancia))
+        
+    return render_template("resistencias.html", form = resistencia, c1=c1, c2=c2, c3=c3, tolerancia=tolerancia, valor=valor, valorMax=valorMax, valorMin=valorMin, color_c1=color_c1, color_c2=color_c2, color_c3=color_c3)
 
 # Definir una ruta y la función asociada a esa ruta
 @app.route("/calcular", methods=["GET", "POST"])

@@ -1,0 +1,60 @@
+{%extends "layout_resistencia.html"%}
+
+{%block container%}
+{%import "_macros.html" as macros %}
+<h1>RESISTENCIAS</h1>
+
+<form action="" method="POST" novalidate>
+    <div class="row control-group">
+        <div class="form-group col-xs-12 floating-label-form-group ontrols">
+            {{macros.camposNuevos(form.c1, class="form-control")}}
+        </div>
+    </div>
+
+    <div class="row control-group">
+        <div class="form-group col-xs-12 floating-label-form-group ontrols">
+            {{macros.camposNuevos(form.c2, class="form-control")}}
+        </div>
+    </div>
+
+    <div class="row control-group">
+        <div class="form-group col-xs-12 floating-label-form-group ontrols">
+            {{macros.camposNuevos(form.c3, class="form-control")}}
+        </div>
+    </div>
+
+    <div class="row control-group">
+        <div class="form-group col-xs-12 floating-label-form-group ontrols">
+            {{macros.camposNuevos(form.tolerancia, class="form-control")}}
+        </div>
+    </div>
+
+    <input type="submit" id="btn1" name="btn1" value="Registrar">
+</form>
+
+<table>
+<thead>
+    <tr>
+        <th>Color 1</th>
+        <th>Color 2</th>
+        <th>Color 3</th>
+        <th>Tolerancia</th>
+        <th>Valor</th>
+        <th>Valor Maximo</th>
+        <th>Valor Minimo</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td class="{{color_c1}}">{{color_c1}}</td>
+        <td class="{{color_c2}}">{{color_c2}}</td>
+        <td class="{{color_c3}}">{{color_c3}}</td>
+        <td>{{tolerancia}}</td>
+        <td>{{valor}}</td>
+        <td>{{valorMax}}</td>
+        <td>{{valorMin}}</td>
+    </tr>
+</tbody>
+</table>
+
+{%endblock%}
