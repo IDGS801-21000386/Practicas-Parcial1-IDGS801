@@ -47,7 +47,7 @@ def insertar(ingles, espaniol):
 
 def buscar(buscar, opcion):
     archivo1 = open("archivoInglesEspaniol.txt", "r") # Para solo lectura
-    resultado = ""
+    resultado = "" #resultado
     
     buscar = buscar.strip().lower()
     print(buscar)

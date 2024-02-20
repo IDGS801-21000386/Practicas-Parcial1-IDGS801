@@ -51,7 +51,6 @@ def distancia():
         y1 = distancia.y1.data
         y2 = distancia.y2.data
         resultado = sqrt((x2-x1)**2 + (y2-y1)**2)
-        
     return render_template("distancia.html", form = distancia, x1=x1, x2=x2, y1=y1, y2=y2, resultado=resultado)
 
 
