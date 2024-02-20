@@ -1,0 +1,12 @@
+Hello,Hola
+Apple,Manzana
+Red,Rojo
+Blue,Azul
+Screen,Pantalla
+Black,Negro
+Purple,Morado,
+Green,Verde
+Dog,Perro
+Cat,Gato
+Puppy,Perrito
+Bear,Oso

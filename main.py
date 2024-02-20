@@ -1,10 +1,40 @@
 from flask import Flask, render_template, request
 import forms_distancia
+import forms_traductor
 # import forms_resistencia
 from math import *
 
 # Crear una instancia de la clase Flask
 app = Flask(__name__)
+
+@app.route("/traductor", methods=["GET", "POST"])
+def traductor():
+    ingles = ""
+    espaniol = ""
+    traducir = ""
+    texto = ""
+    resultado = ""
+    traductor_clase = forms_traductor.TraductorForms(request.form)
+    traductor_clase2 = forms_traductor.TraductorForms2(request.form)
+    
+    if request.method == "POST" and traductor_clase.validate():
+        ingles = traductor_clase.ingles.data
+        espaniol = traductor_clase.espaniol.data
+        print(f'Ingles: {ingles}')
+        print(f'Español: {espaniol}')
+        forms_traductor.insertar(ingles, espaniol)
+
+    if request.method == "POST" and traductor_clase2.validate():
+        traducir = traductor_clase2.traducir.data
+        texto = traductor_clase2.texto.data
+    
+        print(traducir)
+        print(texto)
+        resultado = forms_traductor.buscar(texto, traducir)
+        print("Resultado" + resultado)
+        
+    return render_template("traductor.html", form1=traductor_clase, form2=traductor_clase2, ingles=ingles, espaniol=espaniol, traducir=traducir, texto=texto, resultado=resultado)
+
 
 @app.route("/distancia", methods={"GET", "POST"})
 def distancia():

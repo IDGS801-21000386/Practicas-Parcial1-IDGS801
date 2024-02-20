@@ -1,0 +1,41 @@
+{%extends "layout_resistencia.html"%}
+
+{%block container%}
+{%import "_macros.html" as macros %}
+<h1>Traductor</h1>
+
+<form action="" method="POST" novalidate>
+    <div class="row control-group">
+        <div class="form-group col-xs-12 floating-label-form-group ontrols">
+            {{macros.camposNuevos(form1.ingles, class="form-control")}}
+        </div>
+    </div>
+
+    <div class="row control-group">
+        <div class="form-group col-xs-12 floating-label-form-group ontrols">
+            {{macros.camposNuevos(form1.espaniol, class="form-control")}}
+        </div>
+    </div>
+
+    <input type="submit" id="btn1" name="btn1" value="Registrar">
+</form>
+
+<h2>Leer</h2>
+<form action="" method="POST" novalidate>
+    <div class="row control-group">
+        <div class="form-group col-xs-12 floating-label-form-group ontrols">
+            {{macros.camposNuevos(form2.traducir, class="form-control")}}
+        </div>
+    </div>
+
+    <div class="row control-group">
+        <div class="form-group col-xs-12 floating-label-form-group ontrols">
+            {{macros.camposNuevos(form2.texto, class="form-control")}}
+        </div>
+    </div>
+
+    <input type="submit" id="btn2" name="btn2" value="Buscar">
+</form>
+
+<h1>Palabra "{{texto}}" traducida: {{resultado}}</h1>
+{%endblock%}
